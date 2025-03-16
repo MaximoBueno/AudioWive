@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html translate="no">
+<head>
+    <meta charset="utf-8">
+    <meta name="google" value="notranslate" >
+
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="./css/main.css">
+
+    <style>
+        div.select {
+            display: inline-block;
+            margin: 0 0 1em 0;
+        }
+
+        p.small {
+            font-size: 0.7em;
+        }
+
+        label {
+            width: 12em;
+            display: inline-block;
+        }
+    </style>
+    <script src="./js/adapter-latest.js"></script>
+</head>
+
+<body>
+<div id="container" class="notranslate">
+
+    <div class="select">
+        <label for="audioSource">Audio input source: </label><select id="audioSource"></select>
+    </div>
+
+    <div class="select">
+        <label for="audioOutput">Audio output destination: </label><select id="audioOutput"></select>
+    </div>
+
+    <div class="select">
+        <label for="videoSource">Video source: </label><select id="videoSource"></select>
+    </div>
+
+    <video id="video" playsinline autoplay></video>
+
+</div>
+
+
+<script src="./js/main.js" async></script>
+
+
+</body>
+</html>

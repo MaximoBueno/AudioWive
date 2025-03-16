@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Radio</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        #container {
+            position: absolute;
+            top: 0;
+            left: 0;
+            background: #000;
+            width: 100%;
+            height: 100%;
+        }
+
+        #canvas {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: black;
+            z-index: -1;
+            opacity: .8;
+        }
+
+        .button-container {
+            padding-top: 5px;
+            display: grid;
+            grid-template-columns: repeat(2, 300px);
+            grid-gap: 1px;
+            width: 100%;
+            align-items: center;
+            justify-content: center;
+        }
+
+        button {
+            width: 300px;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body class="notranslate">
+
+    <audio src="https://streaming.witr.rit.edu/live-aac-96" crossorigin="anonymous" id="audio">HTML5 Audio element not
+        supported</audio>
+    <div class="button-container">
+        <button onclick="start()">Stream Radio</button>
+        <button onclick="stop()">Stop Radio</button>
+    </div>
+
+    <canvas id="canvas"></canvas>
+
+    <script src="radioaudio.js"></script>
+
+</body>
+
+</html>

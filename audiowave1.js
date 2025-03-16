@@ -10,11 +10,11 @@ const opts = {
   fft: 8,
   minDecibels: -70,
   scale: 0.2,
-  glow: 7,
+  glow: 10,
   color1: [203, 36, 128],
   color2: [41, 200, 192],
   color3: [24, 137, 218],
-  fillOpacity: 0.7,
+  fillOpacity: 0.6,
   lineWidth: 1,
   blend: "screen",
   shift: 50,
@@ -24,7 +24,7 @@ const opts = {
 
 // Interactive dat.GUI controls
 const gui = new dat.GUI();
-//gui.__proto__.constructor.toggleHide()
+gui.__proto__.constructor.toggleHide()
 // hide them by default
 gui.close(); 
 
@@ -130,8 +130,6 @@ function scale(i) {
  */
 function path(channel) {
   
-  //console.log(" [channel] ", channel);
-
   // Read color1, color2, color2 from the opts
   const color = opts[`color${channel + 1}`].map(Math.floor);
   
@@ -165,16 +163,10 @@ function path(channel) {
     
   const h = 2 * m;
 
-  console.log(" [h, m, x, y] ", h, m, x, y);
-
-  const mycut = 100;
-
-  //h = 50;
-
   ctx.beginPath();
   ctx.moveTo(0, m); // start in the middle of the left side
   ctx.lineTo(x[0], m + 1); // straight line to the start of the first peak
-   
+  
   ctx.bezierCurveTo(x[1], m + 1, x[2], y[0], x[3], y[0]); // curve to 1st value
   ctx.bezierCurveTo(x[4], y[0], x[4], y[1], x[5], y[1]); // 2nd value
   ctx.bezierCurveTo(x[6], y[1], x[6], y[2], x[7], y[2]); // 3rd value

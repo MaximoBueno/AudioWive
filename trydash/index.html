@@ -1,0 +1,573 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inicio</title>
+    <style>
+        body{
+            background-color: rgb(245, 241, 241);
+        }
+        .div_dash_titulo{
+            background: white;
+            padding: 25px 30px 25px 30px;
+            text-align: center;
+            border-radius: 3px;
+            color: #FE6600;
+            box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
+            font-size: 20px;
+        }
+        .div_contenedor_card{
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+
+        }
+        .div_contenedor_hijo{
+            margin-top: 5px;
+            background-color: white;
+            padding-left: 40px;
+            padding-right: 80px;
+            padding-top: 18px;
+            padding-bottom: 10px;
+            align-items: stretch;
+            align-content: space-between;
+            border-radius: 5px;
+            box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
+
+        }
+        .div_monto{
+            font-size: 26px;
+            padding-top: 15px;
+            padding-bottom: 15px;
+        }
+        .div_detalle{
+            font-size: 15px;
+            padding-top: 5px;
+            padding-bottom: 8px;
+            font-weight: bold;
+        }
+        .div_detalle span{
+            font-weight: bold;
+        }
+
+        .div_contenedor_details{
+            padding-top: 15px;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+        }
+
+        .div_contenedor_details_hijo{
+         
+            align-items: stretch;
+            align-content: space-between;
+            
+        }
+        .div_contenedor_d_h_1{
+            background-color: white;
+            padding-left: 16px;
+            padding-right: 4px;
+            padding-top: 8px;
+            padding-bottom: 8px;
+            width: 500px;
+            border-radius: 5px;
+            box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
+        }
+        .div_contenedor_d_h_1_1{
+            margin-top: 10px;
+            background-color: white;
+            padding-left: 16px;
+            padding-right: 4px;
+            padding-top: 8px;
+            padding-bottom: 8px;
+            width: 500px;
+            border-radius: 5px;
+            box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
+        }
+
+     
+
+        
+        .div_contenedor_d_h_2{
+            background-color: white;
+            padding-left: 16px;
+            padding-right: 4px;
+            padding-top: 8px;
+            padding-bottom: 8px;
+            width: 340px;
+       
+            border-radius: 5px;
+            box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
+        }
+        .div_contenedor_d_h_3{
+            background-color: white;
+            padding-left: 16px;
+            padding-right: 4px;
+            padding-top: 8px;
+            padding-bottom: 8px;
+            width: 300px;
+            border-radius: 5px;
+            box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
+        }
+
+
+        .div_contenedor_d_h_3_1{
+            margin-top: 10px;
+            background-color: white;
+            padding-left: 16px;
+            padding-right: 4px;
+            padding-top: 8px;
+            padding-bottom: 8px;
+            width: 300px;
+            border-radius: 5px;
+            box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
+        }
+
+        .div_contenedor_push_query embed{
+            cursor: pointer !important;
+            width: 25px;
+            height: 25px;
+            background-image: url('chat_doble.svg');
+        }
+
+        .div_contenedor_push_query svg{
+            cursor: pointer !important;
+        }
+
+        .div_contenedor_push_query{
+            
+            margin-top: 4px;
+            margin-bottom: 4px;
+            margin-left: 6px;
+            margin-right: 6px;
+        }
+
+        .div_titulo_chat{
+            padding-left: 16px;
+            padding-right: 4px;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+        }
+        .div_titulo{
+            font-weight: bold;
+        }
+     
+    </style>
+</head>
+<body class="notranslate">
+
+    <div class="div_dash_titulo">
+        DASHBOARD EVALUACION DE AREAS
+    </div>
+
+    <div class="div_contenedor_card">
+        <div class="div_contenedor_hijo">
+            <div class="div_titulo">Margen Bruta</div>
+            <div class="div_monto">R$ 3.20000,12</div>
+            <div class="div_detalle"><span style="color: red;">-15%</span> vs año anterior</div>
+
+        </div>
+        
+        <div class="div_contenedor_hijo">
+            <div class="div_titulo">Margen Bruta</div>
+            <div class="div_monto">R$ 3.20000,12</div>
+            <div class="div_detalle"><span style="color: purple;">-15%</span> vs año anterior</div>
+
+        </div> 
+        <div class="div_contenedor_hijo">
+            <div class="div_titulo">Margen Bruta</div>
+            <div class="div_monto">R$ 3.20000,12</div>
+            <div class="div_detalle"><span style="color: green;">-15%</span> vs año anterior</div>
+
+        </div>
+        <div class="div_contenedor_hijo">
+            <div class="div_titulo">Margen Bruta</div>
+            <div class="div_monto">R$ 3.20000,12</div>
+            <div class="div_detalle"><span style="color: brown;">-15%</span> vs año anterior</div>
+
+        </div>
+    </div>
+
+
+    <div class="div_contenedor_details">
+        <div class="div_contenedor_details_hijo">
+            
+            <div class="div_contenedor_d_h_1">
+
+                <div class="div_titulo_chat">
+                    <h5 class="div_contenedor_d_h_1_t">Cantidad por meses</h5>
+                    <div id="c_push_q_1" class="div_contenedor_push_query">
+                     
+                        <object style="pointer-events: none;" height="25px" width="25px" 
+                            data="chat_doble.svg"></object> 
+
+                    </div>
+                </div>
+              
+                
+                <canvas id="myChart_1"></canvas>
+                
+            </div>
+            <div class="div_contenedor_d_h_1_1">
+                <div class="div_titulo_chat">
+                    <h5 class="div_contenedor_d_h_1_t">Cantidad por meses</h5>
+                    <div id="c_push_q_2" class="div_contenedor_push_query">
+                        <object style="pointer-events: none;" height="25px" width="25px" 
+                            data="chat_doble.svg"></object> 
+                    </div>
+                </div>
+                
+                <canvas id="myChart_11"></canvas>
+                
+            </div>                
+        </div>
+        <div class="div_contenedor_details_hijo">
+            <div class="div_contenedor_d_h_2">
+                <div class="div_titulo_chat">
+                    <h5 class="div_contenedor_d_h_1_t">Cantidad por meses</h5>
+                    <div id="c_push_q_3" class="div_contenedor_push_query">
+                        <object style="pointer-events: none;" height="25px" width="25px" 
+                            data="chat_doble.svg"></object> 
+                    </div>
+                </div>
+                <canvas id="myChart_2"></canvas>
+               
+            </div>          
+        </div>
+        <div class="div_contenedor_details_hijo">
+            <div class="div_contenedor_d_h_3">
+                <div class="div_titulo_chat">
+                    <h5 class="div_contenedor_d_h_1_t">Cantidad por meses</h5>
+                    <div id="c_push_q_4" class="div_contenedor_push_query">
+                        <object style="pointer-events: none;" height="25px" width="25px" 
+                            data="chat_doble.svg"></object> 
+                    </div>
+                </div>
+                <canvas id="myChart_3"></canvas>
+                
+            </div>    
+            <div class="div_contenedor_d_h_3_1">
+                <div class="div_titulo_chat">
+                    <h5 class="div_contenedor_d_h_1_t">Cantidad por meses</h5>
+                    <div id="c_push_q_5" class="div_contenedor_push_query">
+                        <object style="pointer-events: none;" height="25px" width="25px" 
+                            data="chat_doble.svg"></object> 
+                    </div>
+                </div>
+                <canvas id="myChart_4"></canvas>
+                
+            </div>    
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script>
+        const ctx = document.getElementById('myChart_1');
+        new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: ['Ene', 'Feb', 'Mar', 'Abr', 'May', 'Jun'],
+                datasets: [{
+                    label: 'Cantidad',
+                    data: [12, 19, 3, 5, 2, 3],
+                    borderWidth: 0,
+                    backgroundColor: ['#9A4DFF']
+                }]
+            },
+            responsive: true,
+            options: {
+                aspectRatio: 2.4,
+                responsive: true,
+                maintainAspectRatio: true,
+                plugins: {
+                    legend: {
+                    display: false
+                    }
+                },
+                scales: {
+
+                    y: {
+                        border: {
+                            display: false
+                        },
+                        beginAtZero: true,
+                        grid: {
+                            lineWidth: 0,
+                            drawBorder: true,
+                            display: false
+                        },
+                        ticks: {
+                            min: 0,
+                            beginAtZero: true
+                        },
+                    },
+                    x:{
+                        border: {
+                            display: false
+                        },
+                        grid: {
+                            lineWidth: 0,
+                            drawBorder: true,
+                            display: false
+                        },
+                        ticks: {
+                            min: 0,
+                            beginAtZero: true
+                        },
+                    }
+                }
+            }
+        });
+
+
+        const ctx2 = document.getElementById('myChart_2');
+        new Chart(ctx2, {
+            type: 'bar',
+            data: {
+                labels: ['Ene', 'Feb', 'Mar', 'Abr', 'May', 'Jun', 'Jul', 'Agos', 'Sept', 'Oct', 'Nov', 'Dic'],
+                datasets: [{
+                    label: 'Cantidad',
+                    data: [12, 19, 3, 5, 2, 3, 7 ,20,9, 10,11,22],
+                    borderWidth: 0,
+                    backgroundColor: ['#4D0686']
+                }]
+            },
+            responsive: true,
+            options: {
+                responsive: true,
+                maintainAspectRatio: true,
+                aspectRatio: 0.7,
+                indexAxis: 'y',
+                plugins: {
+                    legend: {
+                        display: false
+                    }
+                },
+                scales: {
+
+                    y: {
+                        border: {
+                            display: false
+                        },
+                        beginAtZero: true,
+                        grid: {
+                            lineWidth: 0,
+                            drawBorder: true,
+                            display: false
+                        },
+                        ticks: {
+                            min: 0,
+                            stepSize: 1,
+                            beginAtZero: true
+                        },
+                        
+                    },
+                    x:{
+                        border: {
+                            display: false
+                        },
+                        grid: {
+                            lineWidth: 0,
+                            drawBorder: true,
+                            display: false
+                        },
+                        ticks: {
+                            min: 0,
+                            stepSize: 1,
+                            beginAtZero: true
+                        },
+                    }
+                }
+            }
+        });
+
+
+        const ctx3 = document.getElementById('myChart_3');
+
+        new Chart(ctx3, {
+            type: 'doughnut',
+            data: {
+                labels: [
+                    'Pago',
+                    'Faltante',
+                ],
+                datasets: [{
+                    label: 'Cantidad N° ',
+                    data: [300, 50],
+                    backgroundColor: [
+                    '#4D0686',
+                    '#9A4DFF'
+                    ],
+                    hoverOffset: 4
+                }]
+            },
+            responsive: true,
+          
+            options: {
+                aspectRatio: 1.5,
+                responsive: true,
+                elements: {
+                    arc: {
+                        borderWidth: 0
+                    }
+                },
+                plugins: {
+                    legend: {
+                        display: false
+                    }
+                },
+            }
+        });
+
+
+        const ctx4 = document.getElementById('myChart_4');
+        new Chart(ctx4, {
+            type: 'bar',
+            data: {
+                labels: ['Nivel 1', 'Nivel 2', 'Nivel 3', 'Nivel 4'],
+                datasets: [{
+                    label: 'Cantidad',
+                    data: [12, 19, 10,11],
+                    borderWidth: 0,
+                    backgroundColor: ['#0093CD']
+                }]
+            },
+            responsive: true,
+            options: {
+                aspectRatio: 1.5,
+                responsive: true,
+                maintainAspectRatio: true,
+                indexAxis: 'y',
+                plugins: {
+                    legend: {
+                        display: false
+                    }
+                },
+                scales: {
+
+                    y: {
+                        border: {
+                            display: false
+                        },
+                        beginAtZero: true,
+                        grid: {
+                            lineWidth: 0,
+                            drawBorder: true,
+                            display: false
+                        },
+                        ticks: {
+                            min: 0,
+                            stepSize: 1,
+                            beginAtZero: true
+                        },
+                        
+                    },
+                    x:{
+                        border: {
+                            display: false
+                        },
+                        grid: {
+                            lineWidth: 0,
+                            drawBorder: true,
+                            display: false
+                        },
+                        ticks: {
+                            min: 0,
+                            stepSize: 1,
+                            beginAtZero: true
+                        },
+                    }
+                }
+            }
+        });
+
+        const ctx11 = document.getElementById('myChart_11');
+        new Chart(ctx11, {
+            type: 'line',
+            data: {
+                labels: ["Ene", "Feb", "Mar", "Abr", "May"],
+                datasets: [{
+                        label: "Venta",
+                        data: [100, 100, 100, 110, 100],
+                        fill: true,
+                        backgroundColor: '#0093CD80',
+                    },
+                    {
+                        label: "Meta",
+                        data: [120, 160, 160, 180, 200],
+                        fill: true,
+                        backgroundColor: '#1A29B680'
+
+                }],
+            },
+            options: {
+                aspectRatio: 2.6,
+                responsive: true,
+                maintainAspectRatio: true,
+                plugins: {
+                    legend: {
+                    display: false
+                    }
+                },
+                scales: {
+                    y: {
+                        border: {
+                            display: false
+                        },
+                        beginAtZero: true,
+                        grid: {
+                            lineWidth: 0,
+                            drawBorder: true,
+                            display: false
+                        },
+                        ticks: {
+                            min: 0,
+                            beginAtZero: true
+                        },
+                    },
+                    x:{
+                        border: {
+                            display: false
+                        },
+                        grid: {
+                            lineWidth: 0,
+                            drawBorder: true,
+                            display: false
+                        },
+                        ticks: {
+                            min: 0,
+                            beginAtZero: true
+                        },
+                    }
+                }
+            },
+        });
+    
+
+
+
+        document.onreadystatechange = function () {
+            if (document.readyState === 'complete') {
+                
+                let botones_chats = Array.from(document.getElementsByClassName("div_contenedor_push_query"));
+                console.log(botones_chats);
+
+                for (i = 0; i < botones_chats.length; i++) {
+                    var jwall = botones_chats[i].getAttribute("id");
+                    console.log(" [ id ] ", jwall);
+
+                    document.getElementById(jwall).addEventListener("click", function() {
+                        alert("Chat");
+                    });
+
+                }
+            }
+        }
+
+       
+
+    </script>
+</body>
+</html>

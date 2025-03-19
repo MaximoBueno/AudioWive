@@ -1,1 +1,2 @@
 ver: https://webrtc.github.io/samples/src/content/devices/input-output/
+ver2: https://developer.mozilla.org/en-US/docs/Web/API/MediaStream_Recording_API/Using_the_MediaStream_Recording_API

@@ -1,4 +1,2 @@
 #  Audio Wave
-
-## Autor:
-* Max.
+* Experimentos con audio.

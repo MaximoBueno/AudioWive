@@ -304,6 +304,7 @@ function gotDevices(deviceInfos) {
 
   if (!hasPermission || hasCamera || hasMic) {
     console.log(" [constraints] ", constraints);
+    window.AudioContext = window.AudioContext || window.webkitAudioContext;
 
     context = new AudioContext();
     analyser = context.createAnalyser();
@@ -311,7 +312,7 @@ function gotDevices(deviceInfos) {
     freqs = new Uint8Array(analyser.frequencyBinCount);
     document.querySelector("button").remove();
   
-
+    navigator.mediaDevices.getUserMedia = navigator.getUserMedia || navigator.webkitGetUserMedia;
     navigator.mediaDevices.getUserMedia(constraints).then(gotStream).catch(onStreamError);
   }
 

@@ -2,6 +2,7 @@
 const WIDTH = 1000;
 const HEIGHT = 200;
 
+const canvas = document.getElementById("canvas");
 const ctx = canvas.getContext("2d");
 
 // options to tweak the look
@@ -78,7 +79,7 @@ function onStream(stream) {
  */
 function onStreamError(e) {
   document.body.innerHTML = "<h1>This pen only works with https://</h1>";
-  console.error(e);
+  console.log(e);
 }
 
 /**
@@ -165,7 +166,7 @@ function path(channel) {
     
   const h = 2 * m;
 
-  console.log(" [h, m, x, y] ", h, m, x, y);
+  //console.log(" [h, m, x, y] ", h, m, x, y);
 
   const mycut = 100;
 
@@ -226,7 +227,7 @@ function visualize() {
   requestAnimationFrame(visualize);
 }
 
-async function start() {
+function start() {
   context = new AudioContext();
   analyser = context.createAnalyser();
   freqs = new Uint8Array(analyser.frequencyBinCount);
@@ -234,10 +235,172 @@ async function start() {
 
   var constraints = { deviceId: { exact: 'default' } };
 
-  await navigator.getUserMedia({ audio: constraints }, onStream, onStreamError);
+  navigator.getUserMedia({ audio: constraints }, onStream, onStreamError);
 
   //let devices = await navigator.mediaDevices.enumerateDevices();   
   //console.log(devices);
 
 }
 
+
+let hasMic = false;
+let hasCamera = false;
+let hasPermission = false;
+
+function getDevices() {
+  navigator.mediaDevices.enumerateDevices().then(gotDevices).catch(handleError);
+}
+
+function handleError(error) {
+  console.log('navigator.MediaDevices.getUserMedia error: ', error.message, error.name);
+}
+
+function gotDevices(deviceInfos) {
+
+  let audiooutputArray = [];
+  let videoinputArray = [];
+
+  for (let i = 0; i !== deviceInfos.length; ++i) {
+    const deviceInfo = deviceInfos[i];
+    if (deviceInfo.deviceId == '') {
+      continue;
+    }
+
+    hasPermission = true;
+
+    if(deviceInfo.kind === 'audiooutput') {
+      hasMic = true;
+      audiooutputArray.push({ deviceId: deviceInfo.deviceId, label: deviceInfo.label })
+      console.log("id => " + deviceInfo.deviceId, "| label => " + deviceInfo.label);
+    }else if (deviceInfo.kind === 'videoinput') {
+      hasCamera = true;
+      videoinputArray.push({ deviceId: deviceInfo.deviceId, label: deviceInfo.label })
+      //console.log("id => " + deviceInfo.deviceId, "| label => " + deviceInfo.label);
+    }else if (deviceInfo.kind === 'audioinput') {
+      console.log("id => " + deviceInfo.deviceId, "| label => " + deviceInfo.label);
+    }
+
+  }
+
+  console.log(audiooutputArray, videoinputArray);
+
+  const constraints = {
+    audio: true,
+    video: true
+  };
+
+  let audioBuscado = audiooutputArray.find( x => x.deviceId != "default" && x.deviceId != "communications" && x.label.indexOf("Altavoces") > -1 );
+  console.log(" [ audioBuscado ] ",audioBuscado);
+
+  if (hasMic) {
+    //constraints['audio'] = {deviceId: audiooutputArray[0] ? {exact: audiooutputArray[0].deviceId } : undefined}
+    constraints['audio'] = {deviceId: audioBuscado ? {exact: audioBuscado.deviceId } : undefined}
+    
+  }
+
+  if(hasCamera){
+    constraints['video'] = {deviceId: videoinputArray[0] ? {exact: videoinputArray[0].deviceId} : undefined};
+  }
+
+  if (!hasPermission || hasCamera || hasMic) {
+    console.log(" [constraints] ", constraints);
+
+    context = new AudioContext();
+    analyser = context.createAnalyser();
+    console.log("[ analyser ]", analyser);
+    freqs = new Uint8Array(analyser.frequencyBinCount);
+    document.querySelector("button").remove();
+  
+
+    navigator.mediaDevices.getUserMedia(constraints).then(gotStream).catch(onStreamError);
+  }
+
+}
+let audioCtx;
+
+const videoElement = document.querySelector('video');
+
+function onStream2(stream) {
+  console.log("onStream");
+  const input = context.createMediaStreamSource(stream);
+  console.log("[ input ]", input);
+  input.connect(analyser);
+  requestAnimationFrame(visualize);
+}
+
+function gotStream(stream) {
+  window.stream = stream; // make stream available to console
+  videoElement.srcObject = stream;
+
+  stream.onended = function(data) {
+    console.log('Stream ended', data);
+  };
+
+  console.log(" [getVideoTracks] ", stream.getVideoTracks());
+  console.log(" [getAudioTracks] ", stream.getAudioTracks());
+
+  console.log(stream);
+
+  visualizeCanvas(stream);
+  // Refresh list in case labels have become available
+  //return getDevices();
+}
+
+
+function visualizeCanvas(stream) {
+  if (!audioCtx) {
+    audioCtx = new AudioContext();
+  }
+
+  const source = audioCtx.createMediaStreamSource(stream);
+
+  console.log(" [source] ", source);
+
+  const bufferLength = 2048;
+  const analyser = audioCtx.createAnalyser();
+  analyser.fftSize = bufferLength;
+  const dataArray = new Uint8Array(bufferLength);
+
+  source.connect(analyser);
+
+  draw();
+
+  function draw() {
+    const WIDTH = canvas.width;
+    const HEIGHT = canvas.height;
+
+    requestAnimationFrame(draw);
+
+    analyser.getByteTimeDomainData(dataArray);
+
+    ctx.fillStyle = "rgb(200, 200, 200)";
+    ctx.fillRect(0, 0, WIDTH, HEIGHT);
+
+    ctx.lineWidth = 2;
+    ctx.strokeStyle = "rgb(0, 0, 0)";
+
+    ctx.beginPath();
+
+    let sliceWidth = (WIDTH * 1.0) / bufferLength;
+    let x = 0;
+
+    for (let i = 0; i < bufferLength; i++) {
+      let v = dataArray[i] / 128.0;
+      let y = (v * HEIGHT) / 2;
+
+      if (i === 0) {
+        ctx.moveTo(x, y);
+      } else {
+        ctx.lineTo(x, y);
+      }
+
+      x += sliceWidth;
+    }
+
+    ctx.lineTo(canvas.width, canvas.height / 2);
+    ctx.stroke();
+  }
+}
+
+
+getDevices();

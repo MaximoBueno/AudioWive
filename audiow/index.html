@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="google" content="notranslate" />
+    <style>
+        body{
+            padding: 0px; 
+            margin: 0px;
+            box-sizing: border-box;
+        }
+
+        .canvas {
+            background-color: #666;
+            --width: 100%;
+            width: var(--width);
+            height: calc(var(--width) * 0.95);
+        }
+
+        .contenedor_canvas{
+            width: var(--width);
+            height: 30vh;
+        }
+
+        .contenedor_btn{
+            text-align: center;
+        }
+
+        button {
+            background-color: #d84a38;
+            border: none;
+            border-radius: 5px;
+            color: white;
+            padding: 0.5em;
+        }
+
+        button:active {
+            background-color: #cf402f;
+        }
+
+        button:hover {
+            background-color: #cf402f;
+        }
+
+        button[disabled] {
+            color: #ccc;
+            background-color: #cf7c71;
+        }
+
+        button[disabled]:hover {
+            background-color: #d84a38;
+        }
+
+    </style>
+</head>
+<body translate="no">
+
+    <div id="container">
+
+        <video style="display: none;" id="localVideo" playsinline autoplay  ></video>
+        <video style="display: none;" id="remoteVideo" playsinline autoplay  ></video>
+
+        <div class="contenedor_canvas">
+            <canvas class="canvas"></canvas>
+            <div class="contenedor_btn">
+                <button class="btn_accion" id="startButton">Iniciar</button>
+                <button class="btn_accion" id="callButton">Escuchar</button>
+                <button class="btn_accion" id="hangupButton">Parar</button>
+            </div>
+        </div>
+
+    </div>
+
+    <script src="js/adapter-latest.js"></script>
+    <script src="../js/third_party/streamvisualizer2.js"></script>
+    <script src="js/main.js" async></script>
+
+</body>
+</html>
